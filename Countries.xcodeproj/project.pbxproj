@@ -32,6 +32,131 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3702C27289C7D1C00022546 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B3702C2E289C7D6B00022546 /* Utils */,
+				B3702C2D289C7D6300022546 /* Constants */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B3702C28289C7D2500022546 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B3702C2F289C7D8300022546 /* Assets */,
+				B3702C30289C7D8B00022546 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B3702C29289C7D2F00022546 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B3702C31289C7D9800022546 /* Model */,
+				B3702C32289C7D9C00022546 /* Service */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B3702C2A289C7D3A00022546 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B3702C33289C7DB800022546 /* Base */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B3702C2C289C7D5000022546 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3702C34289C7DC800022546 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B3702C2D289C7D6300022546 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		B3702C2E289C7D6B00022546 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B3702C2F289C7D8300022546 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		B3702C30289C7D8B00022546 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B3702C31289C7D9800022546 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B3702C32289C7D9C00022546 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B3702C33289C7DB800022546 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B3D9CC41289C71B8003BEAFC /* CountriesApp.swift */,
+				B3D9CC43289C71B8003BEAFC /* ContentView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B3702C34289C7DC800022546 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B3702C35289C7DDB00022546 /* HomePage */,
+				B3702C36289C7DE600022546 /* DetailCard */,
+				B3702C37289C7DF300022546 /* Saved */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B3702C35289C7DDB00022546 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		B3702C36289C7DE600022546 /* DetailCard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailCard;
+			sourceTree = "<group>";
+		};
+		B3702C37289C7DF300022546 /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Saved;
+			sourceTree = "<group>";
+		};
 		B3D9CC35289C71B8003BEAFC = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +176,11 @@
 		B3D9CC40289C71B8003BEAFC /* Countries */ = {
 			isa = PBXGroup;
 			children = (
-				B3D9CC41289C71B8003BEAFC /* CountriesApp.swift */,
-				B3D9CC43289C71B8003BEAFC /* ContentView.swift */,
+				B3702C27289C7D1C00022546 /* Common */,
+				B3702C28289C7D2500022546 /* Resources */,
+				B3702C29289C7D2F00022546 /* Network */,
+				B3702C2A289C7D3A00022546 /* Modules */,
+				B3702C2C289C7D5000022546 /* Views */,
 				B3D9CC45289C71B9003BEAFC /* Assets.xcassets */,
 				B3D9CC47289C71B9003BEAFC /* Preview Content */,
 			);
