@@ -12,13 +12,30 @@ struct HomePage: View {
     @State var CountriesData : [Data] = []
     var body: some View {
         VStack{
-            Text("Data Screen")
-            ForEach(CountriesData, id:\.self){item in Text(item.name)
+            HStack{
+                Text("Countries")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.black.opacity(0.8))
             }
-        }.onAppear(){
-            let countryRepo = CountryRepository()
-            countryRepo.getCountries(){
-                data in CountriesData = data}
+            HStack{
+                //            ForEach(CountriesData, id:\.self){item in
+                //                Text(item.name)
+                Text("Country from URL")
+                    .font(.body)
+                    .foregroundColor(.black.opacity(0.7))
+                    .frame(width: 320, height: 50)
+                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1.2))
+            }
         }
+        
+        //
+        //
+        //            }
+        //        }.onAppear(){
+        //            let countryRepo = CountryRepository()
+        //            countryRepo.getCountries(){
+        //                data in CountriesData = data
+        
     }
 }
