@@ -10,9 +10,12 @@ import Alamofire
 struct DetailCard: View {
     
     @ Environment (\.openURL) private  var openURL
+    
     let url = URL(string: "https://www.wikidata.org/wiki/Q30")
+    
     @State var favoriteCheck = false
     @State var color = Color.black.opacity(0.7)
+    @EnvironmentObject var favorites : Favorites
     var body: some View {
         
         VStack{

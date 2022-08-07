@@ -11,6 +11,8 @@ import Alamofire
 struct HomePage: View {
     @State var CountriesData : [Data] = []
     @State var favoriteCheck = false
+    @State var datas : [Data] = []
+    @StateObject var favorites = Favorites()
     var body: some View {
         NavigationView{
             VStack{
@@ -20,7 +22,6 @@ struct HomePage: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color.black.opacity(0.8))
                 }
-                HStack{
                     NavigationLink(destination: DetailCard()){
                         //            ForEach(CountriesData, id:\.self){item in
                         //                Text(item.name)
@@ -29,10 +30,11 @@ struct HomePage: View {
                             .foregroundColor(.black.opacity(0.7))
                             .frame(width: 320, height: 50)
                             .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1.2))
-                    }
+                    
                 }
             }
         }
+        .environmentObject(favorites)
         //            }
         //        }.onAppear(){
         //            let countryRepo = CountryRepository()

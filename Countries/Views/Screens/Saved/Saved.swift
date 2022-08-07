@@ -10,7 +10,7 @@ import SwiftUI
 struct Saved: View {
     
     @State var favoriteCheck = false
-
+    
     var body: some View {
         VStack{
             HStack{
@@ -22,9 +22,7 @@ struct Saved: View {
             //            ForEach(CountriesData, id:\.self){item in
             //                Text(item.name)
             HStack{
-
                 NavigationLink(destination: DetailCard()){
-
                 Text("Saved country from URL")
                     .font(.body)
                     .padding(10)
@@ -42,10 +40,11 @@ struct Saved: View {
     }
 }
 
-
-struct Saved_Previews: PreviewProvider {
-    static var previews: some View {
-        Saved()
-    }
-}
+//
+//struct Saved_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Saved(data: Countries.Data)
+//    }
+//
+//}
 
