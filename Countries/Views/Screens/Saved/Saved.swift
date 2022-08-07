@@ -22,6 +22,9 @@ struct Saved: View {
             //            ForEach(CountriesData, id:\.self){item in
             //                Text(item.name)
             HStack{
+
+                NavigationLink(destination: DetailCard()){
+
                 Text("Saved country from URL")
                     .font(.body)
                     .padding(10)
@@ -29,7 +32,7 @@ struct Saved: View {
                 Button(action:{
                     self.favoriteCheck.toggle()
                 }){ Image(systemName: self.favoriteCheck ? "star" : "star.fill").foregroundColor(.black.opacity(0.7)).padding(10)}
-            }
+                }}
             .foregroundColor(.black.opacity(0.7))
             .frame(width: 350, height: 50)
             .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1.2))
