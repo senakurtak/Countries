@@ -10,6 +10,7 @@ import Alamofire
 
 struct HomePage: View {
     @State var CountriesData : [Data] = []
+    @State var favoriteCheck = false
     var body: some View {
         NavigationView{
             VStack{
