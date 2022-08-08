@@ -8,10 +8,11 @@
 import SwiftUI
 import SDWebImage
 import SDWebImageSVGCoder
-@main
-struct CountriesApp: App {
-//    let persistenceController = PersistenceController.shared
 
+@main
+
+struct CountriesApp: App {
+    //    let persistenceController = PersistenceController.shared
     init() {
         setUpDependencies() // Initialize SVGCoder
     }
@@ -23,7 +24,6 @@ struct CountriesApp: App {
 }
 // Initialize SVGCoder
 private extension CountriesApp {
-    
     func setUpDependencies() {
         SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
     }

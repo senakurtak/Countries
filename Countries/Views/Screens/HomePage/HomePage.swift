@@ -11,12 +11,10 @@ import Alamofire
 struct HomePage: View {
     
     @EnvironmentObject var savedStore : SavedStore
-    
     @State var countriesData : CountriesDataModel = CountriesDataModel()
     @StateObject var favorites = Favorites()
     
     var body: some View {
-        
         NavigationView{
             VStack{
                 Text("Countries")
@@ -44,10 +42,6 @@ struct HomePage: View {
                             }
                         }){
                             let checkStatus = savedStore.savedCountries.contains(item.code)
-                            
-                      
-                            
-                            
                             Image(systemName: checkStatus ? "star.fill" : "star").foregroundColor(.black.opacity(0.7)).padding(10)
                         }
                     }
@@ -63,8 +57,7 @@ struct HomePage: View {
                 }
             }
         }            .background(Color(red: (221/230), green: (221/230), blue: (221/230)))
-
-        .environmentObject(favorites)
+            .environmentObject(favorites)
     }
     
 }

@@ -7,44 +7,26 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
-
 import Alamofire
 
-
 struct DetailCard: View {
-    
     @EnvironmentObject var savedStore : SavedStore
-    
-    
-    
     var code : String
-    
     @State var countryDetailModel: CountryDetailModel = CountryDetailModel()
-    
     @ Environment (\.openURL) private  var openURL
-    
     let url = URL(string: "https://www.wikidata.org/wiki/Q30")
-    
     @State var favoriteCheck = false
     @State var color = Color.black.opacity(0.7)
     @EnvironmentObject var favorites : Favorites
     var body: some View {
-        
-        
         VStack{
             HStack{
-                
-                
                 WebImage(url: URL(string: countryDetailModel.data.flagImageUri))
                     .resizable()
                     .scaledToFit()
                     .modifier(RoundedEdge(width: 1, color: .black, cornerRadius: 0))
                     .frame(width: 400, height: 400)
-
-          
             }
-            
-            
             HStack{
                 Text("Country Code:")
                     .font(.body.bold())
@@ -68,22 +50,17 @@ struct DetailCard: View {
             }
             .padding(20)
             Spacer()
-            
         }
         .onAppear(){
             
             let countryRepo = CountryRepository()
             countryRepo.getCountryDetail(code: code){data in
-                
                 countryDetailModel = data
-            
             }
-            
         }
         .navigationTitle(countryDetailModel.data.name)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing:
-                                
                                 Button(action:{
             let checkStatus = savedStore.savedCountries.contains(code)
             
@@ -91,13 +68,10 @@ struct DetailCard: View {
                 if let index = savedStore.savedCountries.firstIndex(of: code) {
                     savedStore.savedCountries.remove(at: index)
                 }
-                
-                
             }
             else{
                 savedStore.savedCountries.append(code)
             }
-            
         }){
             let checkStatus = savedStore.savedCountries.contains(code)
             Image(systemName: checkStatus ? "star.fill" : "star").foregroundColor(.black.opacity(0.7)).padding(10)
@@ -105,11 +79,6 @@ struct DetailCard: View {
         )
     }
 }
-
-
-
-
-
 struct RoundedEdge: ViewModifier {
     let width: CGFloat
     let color: Color

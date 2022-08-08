@@ -145,6 +145,8 @@
 				B368C2A6289F0D580055C3C1 /* Metadata.swift */,
 				B3BE8D7828A050EC0026F16E /* Favorites.swift */,
 				B3BE8D7D28A0F8FE0026F16E /* CountryDetailModel.swift */,
+				B3BE8D7F28A112D30026F16E /* Store */,
+				B3BE8D8028A112E40026F16E /* SavedStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,7 +206,6 @@
 		B3BE8D7F28A112D30026F16E /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				B3BE8D8028A112E40026F16E /* SavedStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -228,7 +229,6 @@
 		B3D9CC40289C71B8003BEAFC /* Countries */ = {
 			isa = PBXGroup;
 			children = (
-				B3BE8D7F28A112D30026F16E /* Store */,
 				B3702C27289C7D1C00022546 /* Common */,
 				B3702C28289C7D2500022546 /* Resources */,
 				B3702C29289C7D2F00022546 /* Network */,

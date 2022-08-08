@@ -10,7 +10,6 @@ import SwiftUI
 struct Saved: View {
     
     @EnvironmentObject var savedStore : SavedStore
-    
     @State var countriesData : CountriesDataModel = CountriesDataModel()
     @StateObject var favorites = Favorites()
     
@@ -22,12 +21,11 @@ struct Saved: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.black.opacity(0.8))
                 ForEach(countriesData.data, id:\.self){item in
-                    
                     let checkStatus = savedStore.savedCountries.contains(item.code)
-                    
                     if(checkStatus){
                         NavigationLink(destination: DetailCard(code: item.code)){
                             Text(item.name)
+                                .padding()
                                 .font(.body)
                                 .foregroundColor(.black.opacity(0.7))
                             Spacer()
@@ -41,7 +39,9 @@ struct Saved: View {
                                 else{
                                     savedStore.savedCountries.append(item.code)
                                 }
-                            }){
+                            }
+                            )
+                            {
                                 let checkStatus = savedStore.savedCountries.contains(item.code)
                                 Image(systemName: checkStatus ? "star.fill" : "star").foregroundColor(.black.opacity(0.7)).padding(10)
                             }
@@ -50,17 +50,13 @@ struct Saved: View {
                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1.2))
                     }
                 }
-
             }
-            
             .onAppear(){
                 let countryRepo = CountryRepository()
                 countryRepo.getCountries(){data in
-                    
                     countriesData = data
                 }
             }
-
         }
         .environmentObject(favorites)
         
