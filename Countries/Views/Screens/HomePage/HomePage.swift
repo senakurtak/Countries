@@ -48,7 +48,6 @@ struct HomePage: View {
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1.2))
                 }
                 Spacer()
-                
             }
             .onAppear(){
                 let countryRepo = CountryRepository()
@@ -56,7 +55,7 @@ struct HomePage: View {
                     countriesData = data
                 }
             }
-        }            .background(Color(red: (221/230), green: (221/230), blue: (221/230)))
+        }   .background(Color(red: (221/230), green: (221/230), blue: (221/230)))
             .environmentObject(favorites)
     }
     

@@ -39,8 +39,7 @@ struct Saved: View {
                                 else{
                                     savedStore.savedCountries.append(item.code)
                                 }
-                            }
-                            )
+                            })
                             {
                                 let checkStatus = savedStore.savedCountries.contains(item.code)
                                 Image(systemName: checkStatus ? "star.fill" : "star").foregroundColor(.black.opacity(0.7)).padding(10)
@@ -59,9 +58,5 @@ struct Saved: View {
             }
         }
         .environmentObject(favorites)
-        
-        
-        
     }
 }
-
