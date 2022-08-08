@@ -9,20 +9,44 @@ import Foundation
 import Alamofire
 
 class CountryRepository {
-    func getCountries(completion:@escaping ([Data]) -> Void){
-        let request = AF.request("https://wft-geo-db.p.rapidapi.com/v1/geo/countries")
-        request.responseDecodable(of: [Data].self){response in
+    func getCountries(completion:@escaping (CountriesDataModel) -> Void){
+        
+        let headers: HTTPHeaders = [
+            "X-RapidAPI-Key": "cb98f696afmsh91bde0afd3313cbp109df6jsn9c1d2cfe5f6f",
+            
+        ]
+        
+        
+        let request = AF.request("https://wft-geo-db.p.rapidapi.com/v1/geo/countries", headers: headers)
+        
+        
+        
+        request.responseDecodable(of: CountriesDataModel.self){response in
+            
             completion(response.value!)
+            
         }
     }
+    
+    func getCountryDetail(code:String, completion:@escaping (CountryDetailModel) -> Void){
+        
+        let headers: HTTPHeaders = [
+            "X-RapidAPI-Key": "cb98f696afmsh91bde0afd3313cbp109df6jsn9c1d2cfe5f6f",
+            
+        ]
+        
+        
+        let request = AF.request("https://wft-geo-db.p.rapidapi.com/v1/geo/countries/\(code)", headers: headers)
+        
+        
+        
+        request.responseDecodable(of: CountryDetailModel.self){data in
+            
+            completion(data.value ?? CountryDetailModel())
+        
+        }
+        
+        
+        
+    }
 }
-
-//class CountryRepository {
-//    func getCountriesData(completion:@escaping ([CountriesDataModel]) -> Void){
-//        let request = AF.request("https://wft-geo-db.p.rapidapi.com/v1/geo/countries")
-//        request.responseDecodable(of: [CountriesDataModel].self){response in
-//            completion(response.value!)
-//        }
-//    }
-//}
-

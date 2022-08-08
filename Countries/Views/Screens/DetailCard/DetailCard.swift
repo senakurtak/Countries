@@ -9,6 +9,10 @@ import SwiftUI
 import Alamofire
 struct DetailCard: View {
     
+    var code : String
+    
+    @State var countryDetailModel: CountryDetailModel = CountryDetailModel()
+    
     @ Environment (\.openURL) private  var openURL
     
     let url = URL(string: "https://www.wikidata.org/wiki/Q30")
@@ -18,9 +22,22 @@ struct DetailCard: View {
     @EnvironmentObject var favorites : Favorites
     var body: some View {
         
+   
+        
+        
         VStack{
             HStack{
-                Text("Turkey")
+                
+
+                
+                AsyncImage(url: URL(string: "https://jpeg.org/images/jpeg2000-home.jpg"))
+
+                    .frame(width: 400, height: 240)
+                    .padding(50)
+                    
+                
+                
+                Text(countryDetailModel.data.name)
                     .foregroundColor(.black.opacity(0.8))
                     .font(.title2)
                     .fontWeight(.bold)
@@ -31,15 +48,15 @@ struct DetailCard: View {
                 Spacer()
             }
             
-            Image("Turkey")
-                .resizable()
-                .frame(width: 400, height: 240)
-                .padding(50)
+          
+            
+  
+            
             HStack{
                 Text("Country Code:")
                     .font(.body.bold())
                     .foregroundColor(Color.black.opacity(0.8))
-                Text("TR")
+                Text(code)
                     .font(.body.bold())
                     .foregroundColor(Color.black.opacity(0.8))
                 Spacer()
@@ -52,13 +69,22 @@ struct DetailCard: View {
                     .background(Color(red: (65/230), green: 75/230, blue: 180/230))
                     .foregroundColor(.white.opacity(0.70))
                     .onTapGesture {
-                        openURL(url!)
+                        openURL( URL(string: "https://www.wikidata.org/wiki/\(countryDetailModel.data.wikiDataId)")!)
                     }
                 Spacer()
             }
             .padding(20)
             Spacer()
 
+        }
+        .onAppear(){
+           
+            let countryRepo = CountryRepository()
+            countryRepo.getCountryDetail(code: code){data in
+                
+               countryDetailModel = data
+            }
+            
         }
         
         
@@ -67,8 +93,3 @@ struct DetailCard: View {
     
 }
 
-struct DetailCard_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailCard()
-    }
-}

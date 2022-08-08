@@ -22,7 +22,7 @@ struct Saved: View {
             //            ForEach(CountriesData, id:\.self){item in
             //                Text(item.name)
             HStack{
-                NavigationLink(destination: DetailCard()){
+                NavigationLink(destination: DetailCard(code:"test")){
                 Text("Saved country from URL")
                     .font(.body)
                     .padding(10)
