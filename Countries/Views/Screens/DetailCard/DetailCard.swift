@@ -6,8 +6,16 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
 import Alamofire
+
+
 struct DetailCard: View {
+    
+    @EnvironmentObject var savedStore : SavedStore
+    
+    
     
     var code : String
     
@@ -22,35 +30,20 @@ struct DetailCard: View {
     @EnvironmentObject var favorites : Favorites
     var body: some View {
         
-   
-        
         
         VStack{
             HStack{
                 
+                
+                WebImage(url: URL(string: countryDetailModel.data.flagImageUri))
+                    .resizable()
+                    .scaledToFit()
+                    .modifier(RoundedEdge(width: 1, color: .black, cornerRadius: 0))
+                    .frame(width: 400, height: 400)
 
-                
-                AsyncImage(url: URL(string: "https://jpeg.org/images/jpeg2000-home.jpg"))
-
-                    .frame(width: 400, height: 240)
-                    .padding(50)
-                    
-                
-                
-                Text(countryDetailModel.data.name)
-                    .foregroundColor(.black.opacity(0.8))
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .frame(width: 350 , height: 50)
-                Button(action:{
-                    self.favoriteCheck.toggle()
-                }){ Image(systemName: self.favoriteCheck ? "star" : "star.fill").foregroundColor(self.color)}
-                Spacer()
+          
             }
             
-          
-            
-  
             
             HStack{
                 Text("Country Code:")
@@ -75,21 +68,57 @@ struct DetailCard: View {
             }
             .padding(20)
             Spacer()
-
+            
         }
         .onAppear(){
-           
+            
             let countryRepo = CountryRepository()
             countryRepo.getCountryDetail(code: code){data in
                 
-               countryDetailModel = data
+                countryDetailModel = data
+            
             }
             
         }
-        
-        
-        
+        .navigationTitle(countryDetailModel.data.name)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing:
+                                
+                                Button(action:{
+            let checkStatus = savedStore.savedCountries.contains(code)
+            
+            if(checkStatus){
+                if let index = savedStore.savedCountries.firstIndex(of: code) {
+                    savedStore.savedCountries.remove(at: index)
+                }
+                
+                
+            }
+            else{
+                savedStore.savedCountries.append(code)
+            }
+            
+        }){
+            let checkStatus = savedStore.savedCountries.contains(code)
+            Image(systemName: checkStatus ? "star.fill" : "star").foregroundColor(.black.opacity(0.7)).padding(10)
+        }
+        )
     }
-    
 }
 
+
+
+
+
+struct RoundedEdge: ViewModifier {
+    let width: CGFloat
+    let color: Color
+    let cornerRadius: CGFloat
+    
+    func body(content: Content) -> some View {
+        content.cornerRadius(cornerRadius - width)
+            .padding(width)
+            .background(color)
+            .cornerRadius(cornerRadius)
+    }
+}

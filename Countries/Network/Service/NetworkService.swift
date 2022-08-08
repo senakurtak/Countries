@@ -23,7 +23,7 @@ class CountryRepository {
         
         request.responseDecodable(of: CountriesDataModel.self){response in
             
-            completion(response.value!)
+            completion(response.value ?? CountriesDataModel())
             
         }
     }
