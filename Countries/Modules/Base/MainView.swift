@@ -11,23 +11,20 @@ struct MainView: View {
     
     @StateObject var savedStore : SavedStore = SavedStore()
     
-    
-    var body: some View {
-
-        TabView{
-            HomePage()
-                .tabItem{
-                    Label("Home", systemImage: "house")
-                }
-           Saved()
-                .tabItem{
-                    Label("Saved", systemImage: "heart")
-                }
-
+        init() {
+            UITabBar.appearance().backgroundColor = UIColor.gray
         }
-        .environmentObject(savedStore)
-        
+        var body: some View {
+            TabView{
+                HomePage()
+                    .tabItem{
+                        Label("Home", systemImage: "house")
+                    }
+                Saved()
+                    .tabItem{
+                        Label("Saved", systemImage: "heart")
+                    }
+            }
+            .environmentObject(savedStore)
+        }
     }
-}
-
-

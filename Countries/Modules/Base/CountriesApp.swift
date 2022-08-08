@@ -14,7 +14,8 @@ import SDWebImageSVGCoder
 struct CountriesApp: App {
     //    let persistenceController = PersistenceController.shared
     init() {
-        setUpDependencies() // Initialize SVGCoder
+        setUpDependencies()
+        // Initialize SVGCoder
     }
     var body: some Scene {
         WindowGroup {

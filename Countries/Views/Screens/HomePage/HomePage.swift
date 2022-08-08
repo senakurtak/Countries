@@ -22,7 +22,6 @@ struct HomePage: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.black.opacity(0.8))
                 ForEach(countriesData.data, id:\.self){item in
-                    
                     NavigationLink(destination: DetailCard(code: item.code)){
                         Text(item.name)
                             .padding()
@@ -48,11 +47,12 @@ struct HomePage: View {
                     .frame(width: 320, height: 50)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1.2))
                 }
+                Spacer()
+                
             }
             .onAppear(){
                 let countryRepo = CountryRepository()
                 countryRepo.getCountries(){data in
-                    
                     countriesData = data
                 }
             }
