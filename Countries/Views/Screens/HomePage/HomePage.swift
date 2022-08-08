@@ -9,11 +9,15 @@ import SwiftUI
 import Alamofire
 
 struct HomePage: View {
+    
+    @EnvironmentObject var savedStore : SavedStore
+    
     @State var countriesData : CountriesDataModel = CountriesDataModel()
-    @State var favoriteCheck = false
-    @State var datas : [Data] = []
     @StateObject var favorites = Favorites()
+   
     var body: some View {
+        
+        
         NavigationView{
             VStack{
                 
@@ -31,10 +35,32 @@ struct HomePage: View {
                         Text(item.name)
                             .font(.body)
                             .foregroundColor(.black.opacity(0.7))
-                            .frame(width: 320, height: 50)
-                            .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1.2))
+                    
+                        Spacer()
+                        Button(action:{
+                            let checkStatus = savedStore.savedCountries.contains(item.code)
+                            
+                            if(checkStatus){
+                                if let index = savedStore.savedCountries.firstIndex(of: item.code) {
+                                    savedStore.savedCountries.remove(at: index)
+                                }
+                               
+                                
+                            }
+                            else{
+                                savedStore.savedCountries.append(item.code)
+                                
+                            }
+                         
+                        }){
+                            let checkStatus = savedStore.savedCountries.contains(item.code)
+                            Image(systemName: checkStatus ? "star.fill" : "star").foregroundColor(.black.opacity(0.7)).padding(10)
+                            
+                        }
                         
                     }
+                    .frame(width: 320, height: 50)
+                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1.2))
                 }
                 
                 

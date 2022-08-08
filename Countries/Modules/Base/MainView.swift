@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @StateObject var savedStore : SavedStore = SavedStore()
+    
+    
     var body: some View {
 
         TabView{
@@ -21,12 +25,9 @@ struct MainView: View {
                 }
 
         }
+        .environmentObject(savedStore)
         
     }
 }
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+
