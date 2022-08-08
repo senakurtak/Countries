@@ -15,4 +15,7 @@ You can easily save the country from Home Page and Detail Page which the page yo
 + SDWebImageSwiftUI ✅
 
 # Screenshots
-<img src= "https://user-images.githubusercontent.com/101430394/183489879-dd84e9c6-2875-41cd-850e-e661b2cb65af.png)" width="270" height="540"> <img src= "(https://user-images.githubusercontent.com/101430394/183489939-c4f41c05-ec33-45f5-92f2-4f578cb82339.png)" width="270" height="540"> <img src= "(https://user-images.githubusercontent.com/101430394/183489947-e622c8e0-5e1a-4f54-9c0d-c93a586e18ff.png)" width="270" height="540">
+
+<img src= "![DetailPage](https://user-images.githubusercontent.com/101430394/183490508-0c66420a-2eda-4fa2-b56a-ce1d6fc56e84.png)" width="270" height="540"> 
+<img src= "![HomePage](https://user-images.githubusercontent.com/101430394/183490526-ab43a617-5e80-4a42-b08e-81c948749673.png)" width="270" height="540"> 
+<img src= "![Saved](https://user-images.githubusercontent.com/101430394/183490533-d6ec4ad4-1f1c-4701-89d0-42cae128b26b.png)" width="270" height="540"> 
