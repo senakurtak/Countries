@@ -55,8 +55,8 @@ struct HomePage: View {
                     countriesData = data
                 }
             }
-        }   .background(Color(red: (221/230), green: (221/230), blue: (221/230)))
-            .environmentObject(favorites)
+        }
+        .background(Color(red: (221/230), green: (221/230), blue: (221/230)))
+        .environmentObject(favorites)
     }
-    
 }

@@ -18,10 +18,12 @@ struct MainView: View {
                 HomePage()
                     .tabItem{
                         Label("Home", systemImage: "house")
+                            .padding(.top)
                     }
                 Saved()
                     .tabItem{
                         Label("Saved", systemImage: "heart")
+                            .padding(.top)
                     }
             }
             .accentColor(Color.white)
