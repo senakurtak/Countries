@@ -16,7 +16,7 @@ struct CountryDetailModel : Codable {
 struct DetailClass : Codable {
     //var code : String? = ""
     //var callingCode : String = ""
-    var capital: String = ""
+//    var capital: String = ""
    // var currencyCodes: [String] = []
     var flagImageUri: String = ""
     var name: String = ""

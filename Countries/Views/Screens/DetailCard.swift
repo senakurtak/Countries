@@ -41,7 +41,7 @@ struct DetailCard: View {
             }
             .padding(20)
             HStack{
-                Text("Country Capital:")
+                Text("Capital:")
                     .font(.body.bold())
                     .foregroundColor(Color.black.opacity(0.8))
                 Text(countryTimeModel.capital)
@@ -68,12 +68,10 @@ struct DetailCard: View {
         .onAppear(){
             let countryRepo = CountryRepository()
             countryRepo.getCountryDetail(code: code){data in
-                countryDetailModel = data
-    }
+                countryDetailModel = data}
             let countryTimeRepo = CountryRepository()
             countryTimeRepo.getTime(code: code){data in
-                countryTimeModel = data
-            }
+                countryTimeModel = data}
         }
         .navigationTitle(countryDetailModel.data.name)
         .navigationBarTitleDisplayMode(.inline)
