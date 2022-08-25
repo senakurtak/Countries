@@ -39,6 +39,17 @@ struct DetailCard: View {
                 Spacer()
             }
             .padding(20)
+            HStack{
+                Text("Country Capital:")
+                    .font(.body.bold())
+                    .foregroundColor(Color.black.opacity(0.8))
+                Text(countryDetailModel.data.capital)
+                    .font(.body.bold())
+                    .foregroundColor(Color.black.opacity(0.8))
+                Spacer()
+            }
+            .padding(20)
+
             HStack {
                 Text("For More Information")
                     .font(.body.bold())
