@@ -14,6 +14,7 @@ struct DetailCard: View {
     @EnvironmentObject var savedStore : SavedStore
     var code : String
     @State var countryDetailModel: CountryDetailModel = CountryDetailModel()
+    @State var countryTimeModel : CountryTimeModel = CountryTimeModel()
     @ Environment (\.openURL) private  var openURL
     let url = URL(string: "https://www.wikidata.org/wiki/Q30")
     @State var favoriteCheck = false
@@ -43,7 +44,7 @@ struct DetailCard: View {
                 Text("Country Capital:")
                     .font(.body.bold())
                     .foregroundColor(Color.black.opacity(0.8))
-                Text(countryDetailModel.data.capital)
+                Text(countryTimeModel.capital)
                     .font(.body.bold())
                     .foregroundColor(Color.black.opacity(0.8))
                 Spacer()
@@ -68,6 +69,10 @@ struct DetailCard: View {
             let countryRepo = CountryRepository()
             countryRepo.getCountryDetail(code: code){data in
                 countryDetailModel = data
+    }
+            let countryTimeRepo = CountryRepository()
+            countryTimeRepo.getTime(code: code){data in
+                countryTimeModel = data
             }
         }
         .navigationTitle(countryDetailModel.data.name)
