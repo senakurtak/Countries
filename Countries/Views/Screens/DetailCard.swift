@@ -8,7 +8,6 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import Alamofire
-import MapKit
 
 struct DetailCard: View {
     
@@ -21,9 +20,8 @@ struct DetailCard: View {
     @State var favoriteCheck = false
     @State var color = Color.black.opacity(0.7)
     @EnvironmentObject var favorites : Favorites
-    
+    @State var dateString = ""
     var body: some View {
-        
         VStack{
             HStack{
                 WebImage(url: URL(string: countryDetailModel.data.flagImageUri))
@@ -77,7 +75,6 @@ struct DetailCard: View {
             Spacer()
         }
         .onAppear(){
-            
             let countryRepo = CountryRepository()
             countryRepo.getCountryDetail(code: code){data in
                 countryDetailModel = data}
