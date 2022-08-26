@@ -8,6 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import Alamofire
+import MapKit
 
 struct DetailCard: View {
     
@@ -22,6 +23,7 @@ struct DetailCard: View {
     @EnvironmentObject var favorites : Favorites
     
     var body: some View {
+        
         VStack{
             HStack{
                 WebImage(url: URL(string: countryDetailModel.data.flagImageUri))
@@ -50,7 +52,16 @@ struct DetailCard: View {
                 Spacer()
             }
             .padding(20)
-
+            HStack{
+                Text("Current Local Time:")
+                    .font(.body.bold())
+                    .foregroundColor(Color.black.opacity(0.8))
+                Text(countryTimeModel.timezones[0])
+                    .font(.body.bold())
+                    .foregroundColor(Color.black.opacity(0.8))
+                Spacer()
+            }
+            .padding(20)
             HStack {
                 Text("For More Information")
                     .font(.body.bold())
@@ -66,6 +77,7 @@ struct DetailCard: View {
             Spacer()
         }
         .onAppear(){
+            
             let countryRepo = CountryRepository()
             countryRepo.getCountryDetail(code: code){data in
                 countryDetailModel = data}
