@@ -17,4 +17,6 @@ You can easily save the country from Home Page and Detail Page which the page yo
 # Screenshots
 HomePage |  Saved | DetailPage
 :-------------------------:|:---------------------------:|:------------------------:
-![](https://user-images.githubusercontent.com/101430394/183497133-8429e420-2ff7-4896-b6f0-5852164b83a7.png) | ![](https://user-images.githubusercontent.com/101430394/183498147-a092446c-4089-40e1-b3df-fe15ca3542d6.png) | ![](https://user-images.githubusercontent.com/101430394/183497137-25c40a3e-1765-4bc4-8b67-6df859e9fc4a.png)
+![](https://user-images.githubusercontent.com/101430394/183497133-8429e420-2ff7-4896-b6f0-5852164b83a7.png) | ![](https://user-images.githubusercontent.com/101430394/186882950-1448d04b-8673-40e5-ad16-0e905bf18f63.png) | ![](https://user-images.githubusercontent.com/101430394/183497137-25c40a3e-1765-4bc4-8b67-6df859e9fc4a.png)
+
+
