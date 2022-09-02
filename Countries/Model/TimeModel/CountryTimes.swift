@@ -9,5 +9,5 @@ import Foundation
 
 struct CountryTimeModel: Codable {
     var capital: String = ""
-    var timezones: [String] = []
+    var timezones: [String] = [""]
 }

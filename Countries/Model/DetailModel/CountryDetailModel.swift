@@ -7,11 +7,9 @@
 
 import Foundation
 
-
 struct CountryDetailModel : Codable {
     var data: DetailClass = DetailClass()
 }
-
 
 struct DetailClass : Codable {
     //var code : String? = ""
